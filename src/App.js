@@ -1,9 +1,19 @@
-import './styles/App.css';
+import './styles/App.scss';
 import GameScreen from './components/GameScreen';
+
+import { Provider } from 'react-redux';
+import { configureStore } from '@reduxjs/toolkit';
+import gameReducer from './redux';
+
+let store = configureStore({
+  reducer: gameReducer,
+});
 
 function App() {
   return (
-    <GameScreen/>
+    <Provider store={store}>
+      <GameScreen />
+    </Provider>
   );
 }
 
