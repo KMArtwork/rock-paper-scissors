@@ -7,9 +7,8 @@ import Score from "../Score";
 function Header() {
 
   return(
-    <Box sx={{border: '1px solid white', borderRadius: '5px', padding: '1rem', display: 'flex', justifyContent: 
-    'space-between', alignItems: 'center'}}>
-      <img src={titleLogo} style={{width: 'auto', height: '60%'}}/>
+    <Box id='header-box'>
+      <img src={titleLogo} id='header-logo'/>
       <Score />
     </Box>
   )

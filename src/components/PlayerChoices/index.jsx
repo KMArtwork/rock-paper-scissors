@@ -11,9 +11,9 @@ function PlayerChoices (){
 
   return(
     <Container sx={{}} id='player-choices'>
-      <Option name='rock' icon={RockIcon} />
-      <Option name='scissors' icon={ScissorsIcon} />
-      <Option name='paper' icon={PaperIcon} />
+      <Option name='rock' icon={RockIcon} classes="choice" />
+      <Option name='scissors' icon={ScissorsIcon} classes="choice" />
+      <Option name='paper' icon={PaperIcon} classes="choice" />
     </Container>
   )
 
