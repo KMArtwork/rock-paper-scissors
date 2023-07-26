@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import Option from "../Option";
+import PlayAgain from "../PlayAgain";
 
 import RockIcon from '../../assets/images/icon-rock.svg';
 import PaperIcon from '../../assets/images/icon-paper.svg'
@@ -15,57 +16,56 @@ function CompareChoices(){
   const {setPlayerChoice, setCpuChoice, setScore} = gameSlice.actions;
  
   useEffect(() => {
-    // console.log('yo')
     dispatch(setCpuChoice());
     dispatch(setScore());
-    setTimeout(() => {
-      console.log('yo from inside the timeout');
-      dispatch(setPlayerChoice(undefined));
-    }, 3000)
   }, [])
 
   return(
-    <div id='compare-choices-wrapper'>
-      <div id='player-choice'>
-          <Option 
-            name={state.playerChoice} 
-            icon={
-              state.playerChoice === 'rock' ?
-              RockIcon
-              :
-              state.playerChoice === 'scissors' ?
-              ScissorsIcon
-              :
-              state.playerChoice === 'paper' ?
-              PaperIcon
-              :
-              null
-            }/>
+    <>
+      <div id='compare-choices-wrapper'>
+        <div id='player-choice'>
+          <div id={state.winner === 'player' ? 'winner' : ''}>
+            <Option 
+              name={state.playerChoice} 
+              icon={
+                state.playerChoice === 'rock' ?
+                RockIcon
+                :
+                state.playerChoice === 'scissors' ?
+                ScissorsIcon
+                :
+                state.playerChoice === 'paper' ?
+                PaperIcon
+                :
+                null
+              }
+            />
+          </div>
             <p>You Picked</p>
+        </div>
+        <div id="cpu-choice">
+          <div id={state.winner === 'cpu' ? 'winner' : ''}>
+            <Option 
+              name={state.cpuChoice} 
+              icon={
+                state.cpuChoice === 'rock' ?
+                RockIcon
+                :
+                state.cpuChoice === 'scissors' ?
+                ScissorsIcon
+                :
+                state.cpuChoice === 'paper' ?
+                PaperIcon
+                :
+                null
+              }
+            />
+          </div>
+          <p>The House Picked</p>
+        </div>
       </div>
-      <div id="cpu-choice">
-        {
-          state.cpuChoice ? 
-          <Option 
-          name={state.cpuChoice} 
-          icon={
-            state.cpuChoice === 'rock' ?
-            RockIcon
-            :
-            state.cpuChoice === 'scissors' ?
-            ScissorsIcon
-            :
-            state.cpuChoice === 'paper' ?
-            PaperIcon
-            :
-            null
-          }/>
-          :
-          <div id='cpu-choice-placeholder'></div>
-        }
-        <p>The House Picked</p>
-      </div>
-    </div>
+      <PlayAgain />
+    </>
   )
 
 }
