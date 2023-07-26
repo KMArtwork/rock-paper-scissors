@@ -24,7 +24,7 @@ function RulesButton() {
       >
 
         <Box id='rules-modal'>
-          <h1 style={{color: 'navy', fontSize: '2rem', fontWeight: '700', marginTop: '2rem'}}>Rules</h1>
+          <h1 id='rules-header'>Rules</h1>
           <img src={rulesIcon} alt="rules of rock-paper-scissors" />
           <Button onClick={handleToggle}>
             <img src={closeIcon} alt="close rules icon" />

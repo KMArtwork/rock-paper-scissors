@@ -1,6 +1,18 @@
 @import url('./reset.css');
 @import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700&display=swap');
 
+$ScissorsGradient: linear-gradient(hsl(39, 89%, 49%), hsl(40, 84%, 53%));
+$PaperGradient: linear-gradient(hsl(230, 89%, 62%), hsl(230, 89%, 65%));
+$RockGradient: linear-gradient(hsl(349, 71%, 52%), hsl(349, 70%, 56%));
+$LizardGradient: linear-gradient(hsl(261, 73%, 60%), hsl(261, 72%, 63%));
+$Cyan: linear-gradient(hsl(189, 59%, 53%), hsl(189, 58%, 57%));
+
+$DarkText: hsl(229, 25%, 31%);
+$ScoreText: hsl(229, 64%, 46%);
+$HeaderOutline: hsl(217, 16%, 45%);
+
+$BGGradient: radial-gradient(circle at top, hsl(214, 47%, 23%), hsl(237, 49%, 15%));
+
 :root{
   font-family: 'Barlow Semi Condensed';
   font-weight: 600;
@@ -12,11 +24,31 @@
   height: calc(100vh - 4rem);
   padding: 2rem;
   text-align: center;
-  background: radial-gradient(circle at top, hsl(214, 47%, 23%), hsl(237, 49%, 15%));
+  background: $BGGradient;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
+
+//-------------------------
+
+#header-box{
+  border: 3px solid $HeaderOutline; 
+  border-radius: 5px; 
+  padding: 1rem; 
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center; 
+  height: 60px;
+}
+
+#header-logo{
+  width: auto; 
+  height: 80%; 
+  margin-left: 0.25rem;
+}
+
+//-------------------------
 
 #player-choices{
   background: url('../assets/images/bg-triangle.svg');
@@ -30,7 +62,7 @@
 }
 
 #rock{
-  background: linear-gradient(hsl(349, 71%, 52%), hsl(349, 70%, 56%));
+  background: $RockGradient;
 
   &.choice{
     position: relative;
@@ -39,7 +71,7 @@
 }
 
 #scissors{
-  background: linear-gradient(hsl(39, 89%, 49%), hsl(40, 84%, 53%));
+  background: $ScissorsGradient;
 
   &.choice{
     position: absolute;
@@ -49,7 +81,7 @@
 }
 
 #paper{
-  background: linear-gradient(hsl(230, 89%, 62%), hsl(230, 89%, 65%));
+  background: $PaperGradient;
 
   &.choice{
     position: absolute;
@@ -140,6 +172,32 @@
   }
 }
 
+//------------------------
+
+#score-box{
+  background-color: white; 
+  width: 80px; 
+  height: 70px; 
+  border-radius: 5px; 
+  display: flex; 
+  flex-direction: column; 
+  justify-content: center; 
+  align-items: center;
+}
+
+#score-header{
+  font-weight: 700; 
+  color: $ScoreText;
+  font-size: 0.6rem;
+  letter-spacing: 0.0625rem;
+}
+
+#score-number{
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: $DarkText;
+}
+
 
 //------------------------
 
@@ -166,5 +224,11 @@
 
   > * {
     margin: 2rem;
+  }
+
+  #rules-header{
+    color: $DarkText;
+    font-size: 2rem; 
+    font-weight: 700; 
   }
 }
