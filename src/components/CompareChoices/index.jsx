@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Option from "../Option";
 import PlayAgain from "../PlayAgain";
 
@@ -11,14 +11,27 @@ import gameSlice from "../../redux/gameSlice";
 
 function CompareChoices(){
 
+  const [isMobile, setIsMobile] = useState(
+    window.innerWidth <= 500 ? true : false 
+  );
+
   const state = useSelector(state => state.game);
   const dispatch = useDispatch();
-  const {setPlayerChoice, setCpuChoice, setScore} = gameSlice.actions;
+  const { setCpuChoice, setScore} = gameSlice.actions;
+
+  const handleResize = () => {
+    console.log('window size change')
+    window.innerWidth <= 500 ?
+    setIsMobile(true)
+    :
+    setIsMobile(false)
+  }
  
   useEffect(() => {
     dispatch(setCpuChoice());
     dispatch(setScore());
-  }, [])
+    window.addEventListener('resize', handleResize)
+  }, []) //eslint-disable-line
 
   return(
     <>
@@ -43,6 +56,7 @@ function CompareChoices(){
           </div>
             <p>You Picked</p>
         </div>
+        { !isMobile ? <PlayAgain /> : null }
         <div id="cpu-choice">
           <div id={state.winner === 'cpu' ? 'winner' : ''}>
             <Option 
@@ -64,7 +78,7 @@ function CompareChoices(){
           <p>The House Picked</p>
         </div>
       </div>
-      <PlayAgain />
+      { isMobile ? <PlayAgain /> : null }
     </>
   )
 
