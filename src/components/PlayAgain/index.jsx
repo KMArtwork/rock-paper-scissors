@@ -16,6 +16,7 @@ function PlayAgain(){
 
   return(
     <Container id='play-again'>
+      {console.log(window.innerWidth, window.innerHeight)}
       <h1>
         {
           state.winner === 'player' ?
