@@ -228,7 +228,7 @@ $BGGradient: radial-gradient(circle at top, hsl(214, 47%, 23%), hsl(237, 49%, 15
     margin: 2rem;
   }
 
-  #rules-header{
+  #rules-header-title{
     color: $DarkText;
     font-size: 2rem; 
     font-weight: 700; 
@@ -451,6 +451,27 @@ $breakpoint-mobile: 500px;
     border-radius: 7px;
     bottom: 0;
     text-align: center;
+  }
+
+  #rules-modal{
+    transform: translate(-50%, -50%);
+    width: 25%;
+    height: 50%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    border-radius: 10px;
+  }
+
+  #rules-header{
+    margin: 0;
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+
+    #rules-header-title{
+      font-size: 3.25rem;
+    }
   }
 
 }

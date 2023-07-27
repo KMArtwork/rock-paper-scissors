@@ -8,7 +8,7 @@ function Header() {
 
   return(
     <Box id='header-box'>
-      <img src={titleLogo} id='header-logo'/>
+      <img src={titleLogo} id='header-logo' alt='rock paper scissors logo'/>
       <Score />
     </Box>
   )
